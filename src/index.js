@@ -39,6 +39,18 @@ app.post('/info',(req,res) =>{
     
     res.send(writeFile);
 });
+app.post('/setinfo/',(req,res) =>{
+  
+  let writeFile = JSON.stringify(req.query.info);
+    console.log(writeFile);
+
+    fs.appendFile(file, writeFile+'\n', (erro) =>{
+        if(erro){
+            return res.send(erro);
+        }
+    })
+  res.send(writeFile);
+});
 
 app.listen(PORT);
 console.log("Start server",`${HOST}:${PORT}`);
