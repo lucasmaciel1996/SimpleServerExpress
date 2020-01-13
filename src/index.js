@@ -41,8 +41,8 @@ app.post('/info',(req,res) =>{
 });
 app.post('/setinfo/',(req,res) =>{
   
-  let writeFile = JSON.stringify(req.query.info);
-    console.log(writeFile);
+  let writeFile = JSON.stringify(req.body);
+    console.log('Chegou ;) : ',writeFile);
 
     fs.appendFile(file, writeFile+'\n', (erro) =>{
         if(erro){
